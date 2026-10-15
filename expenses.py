@@ -1,18 +1,36 @@
-a1 = int(input("введите первое число: "))
-a2 = int(input("введите второе число: "))
-a3 = int(input("введите третье число: "))
-a4 = int(input("введите четвёртое число: "))
-a5 = int(input("введите пятое число: "))
-a6 = int(input("введите шестое число: "))
-a7 = int(input("введите седьмое число: "))
+def main() -> None:
+    parts = input("Введите сумму: ").lower().split()
+    rubles = {"руб", "рубль", "рубля", "рублей"}
+    kopecks = {"коп", "копейка", "копейки", "копеек"}
 
-things = [a1, a2, a3, a4, a5, a6, a7]
+    kopecks = kopecks[:2]
 
-summ = sum(things)
-sred = (summ / 7)
-min = min(things)
-max = max(things)
+    if len(parts) == 2 and parts[1] in rubles:
+        rubl2es = parts[0]
+        kope2ckses = "0"
+    elif (
+        len(parts) == 4
+        and parts[1] in rubles
+        and parts[3] in kopecks
+    ):
+        rubl2es = parts[0]
+        kope2ckses = parts[2]
+    else:
+        print("Некорректный формат суммы")
+        return
 
-itog = (min, max, summ)
+    if not rubl2es.isdigit() or not kope2ckses.isdigit():
+        print("Некорректный формат суммы")
+        return
 
-print(itog)
+    rubles = int(rubl2es)
+    kopecks = int(kope2ckses)
+    if kopecks > 99:
+        print("Некорректный формат суммы")
+        return
+    
+    print(f"{rubles}.{kopecks} ₽")
+
+
+if __name__ == "__main__":
+    main()
