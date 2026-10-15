@@ -7,11 +7,12 @@ a6 = int(input("введите шестое число: "))
 a7 = int(input("введите седьмое число: "))
 
 things = [a1, a2, a3, a4, a5, a6, a7]
-itog = (summ, min, max)
 
 summ = sum(things)
 sred = (summ / 7)
 min = min(things)
 max = max(things)
+
+itog = (min, max, summ)
 
 print(itog)
